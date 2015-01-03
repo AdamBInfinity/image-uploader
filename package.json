@@ -1,0 +1,24 @@
+{
+  "name": "website",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Beck",
+  "license": "ISC",
+  "dependencies": {
+    "exif": "^0.4.0",
+    "express": "^4.10.6",
+    "gm": "^1.17.0",
+    "hbs": "^2.8.0",
+    "jpegorientation": "^1.0.2",
+    "multer": "^0.1.6",
+    "socket.io": "^1.2.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^1.8.2",
+    "gulp": "^3.8.10",
+    "mongoose": "^3.8.21"
+  }
+}

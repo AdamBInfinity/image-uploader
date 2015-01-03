@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+  </head>
+  <body>
+    <form id="photoUpload" action="/api/upload" enctype="multipart/form-data" name="photoU">
+      <input type="file" id="userFileInput" name="userFile" accept="image/*" capture="camera" />
+      <input type="submit">
+    </form>
+    {{#if imagePath}}
+      <img id="lastUploaded" src="{{imagePath}}" alt="last uploaded photo" />
+    {{/if}}
+    <script src="bower_components/socket.io-client/socket.io.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
