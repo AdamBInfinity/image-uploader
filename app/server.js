@@ -14,9 +14,14 @@ var uploadPhotoSchema = mongoose.Schema({
   uploaded: Date
 });
 
+var photoUploadLocation = '/photos/';
+
 var UploadedPhoto = mongoose.model('photos', uploadPhotoSchema);
 
-mongoose.connect('mongodb://localhost/photos');
+// var database = process.env.DATABASE_PORT_27017_TCP_ADDR || 'localhost';
+
+// mongoose.connect('mongodb://' + database + '/photos');
+mongoose.connect('mongodb://database/photos');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
@@ -38,12 +43,15 @@ app.post('/api/upload', function(req, res) {
   gm(req.files.userFile.buffer)
     .resize(300)
     .autoOrient()
-    .write('./uploads/' + req.files.userFile.name, function(err) {
-      if (err) return console.log(err);
+    .write(photoUploadLocation + req.files.userFile.name, function(err) {
+      if (err) {
+        console.log('something is really messed up; possible no imagemagick installed on server');
+        return console.log(err);
+      }
 
       var photo = new UploadedPhoto({
         fileName: req.files.userFile.originalname,
-        path: './uploads/' + req.files.userFile.name,
+        path:  photoUploadLocation + req.files.userFile.name,
         uploaded: new Date()
       });
 

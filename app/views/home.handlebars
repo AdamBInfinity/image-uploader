@@ -3,9 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title></title>
+    <title>Image Uploader</title>
+    <!-- build:css ../css/main.css -->
+    <link rel="stylesheet" href="../css/main.css" />
+    <!-- endbuild -->
+    <!-- build:js ../js/modernizr.min.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
   </head>
   <body>
+    <h1>Image Uploader!!!</h1>
     <form id="photoUpload" action="/api/upload" enctype="multipart/form-data" name="photoU">
       <input type="file" id="userFileInput" name="userFile" accept="image/*" capture="camera" />
       <input type="submit">
@@ -13,8 +20,15 @@
     {{#if imagePath}}
       <img id="lastUploaded" src="{{imagePath}}" alt="last uploaded photo" />
     {{/if}}
-    <script src="bower_components/socket.io-client/socket.io.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <!-- build:js1 ../js/vendor.min.js -->
+    <script src="../bower_components/socket.io-client/socket.io.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbuild -->
+    <!-- build:js2 ../js/foundation.min.js -->
+    <script src="../bower_components/foundation/js/foundation.min.js"></script>
+    <!-- endbuild -->
+    <!-- build:js3 ../js/main.min.js -->
+    <script src="../js/main.js"></script>
+    <!-- endbuild -->
   </body>
 </html>
